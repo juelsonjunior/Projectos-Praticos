@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sistema de cadastro</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="box-msg">
+            <i class="fa-solid fa-circle-check"></i>
+            <p class="msg-alert">Mensagem de teste</p>
+        </div>
+
+        <div class="content-box">
+            <div class="box-form">
+                <form id="form-cad-user">
+                    <h3 class="titulo">Cadastro</h3>
+                    <div class="box-input">
+                        <label for="nome">Usuário</label>
+                        <input type="text" id="nome" class="input-form" placeholder="Usuário">
+
+                        <span class="span-error">Mensagem de erro</span>
+                    </div>
+
+                    <div class="box-input">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="email" class="input-form" placeholder="E-mail">
+
+                        <span class="span-error">Mensagem de erro</span>
+                    </div>
+
+                    <div class="box-input">
+                        <label for="profissao">Profissão</label>
+                        <select id="profissao" class="input-form">
+                            <option value="0">Selecionar profissão</option>
+                            <option value="1">Programador</option>
+                            <option value="2">Freelancer</option>
+                            <option value="3">Professor</option>
+                        </select>
+
+                        <span class="span-error">Mensagem de erro</span>
+                    </div>
+
+                    <p id="list-user-cad" class="link-hide-box"> <i class="fa-solid fa-arrow-right"></i> Lista de
+                        usuarios <i class="fa-solid fa-arrow-left"></i></p>
+                    <button id="submit-user">Cadastrar</button>
+                </form>
+            </div>
+
+            <div class="box-list-user boxHidden">
+                <h3 class="titulo">Lista de usuarios</h3>
+                <table class="table-list-users">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Profissão</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>juelson Junior</td>
+                            <td>juelson@gmail.com</td>
+                            <td>Programador</td>
+                            <td>
+                                <i class="fa-solid fa-trash"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="back-cad-user" class="link-hide-box"> <i class="fa-solid fa-arrow-right"></i> Cadastrar mais
+                    usuarios <i class="fa-solid fa-arrow-left"></i></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
