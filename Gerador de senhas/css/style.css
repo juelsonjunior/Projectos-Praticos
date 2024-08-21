@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+:root {
+    --color-1: #1E1928;
+    --color-2: #08FE85;
+    --color-3: #fff;
+    --color-5: #d50cf8;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.config-color{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    background-color: var(--color-3);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    & .colors{
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        user-select: none;
+    }
+    & .colors:hover{
+        transform: scale(0.9);
+    }
+}
+.content-generator{
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--color-3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.553);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+    & .flex-button-generator{
+        display: flex;
+        gap: 10px;
+
+        & .input-caract{
+            width: 90px;
+            text-align: center;
+            border: 1px solid var(--color-1);
+            border-radius: 5px;
+            outline: none;
+        }
+    }
+
+    & .title-generator{
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    & .btn-generator{
+        padding: 10px 20px;
+        background-color: var(--color-1);
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        color: var(--color-3);
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        user-select: none;
+    }
+    & .btn-generator:hover{
+        background-color: var(--color-2);
+        color: var(--color-1);
+        transform: scale(1.1);
+    }
+
+    & .content-result{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 15px;
+        
+        & .result-password{
+            width: 200px;
+            height: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.338);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-1);
+            color: #7b7b7b;
+        }
+
+    }
+}
+
+.pass-generate-list{
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--color-3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.553); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+    & .title-pass-list{
+        font-size: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    & .list-pass-table{
+        width: 100%;
+        letter-spacing: 2px;
+
+        & thead{
+            background-color: var(--color-1);
+            color: var(--color-3);
+            height: 20px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 15px;
+
+            & tr th{
+                border-radius: 2px;
+            }
+        }
+        & tbody{
+            background-color: var(--color-1);
+            color: var(--color-3);
+            text-align: center;
+
+            & tr{
+                height: 20px;
+
+                & td{
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
+}

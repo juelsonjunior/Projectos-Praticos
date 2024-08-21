@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gerador de senha</title>
+</head>
+<body>
+    <div class="container">
+        <div class="config-color">
+            <div class="colors" data-color="#1E1928" style="background-color:#1E1928;"></div>
+            
+            <div class="colors" data-color="#ec2e2e" style="background-color:#ec2e2e;"></div>
+            
+            <div class="colors" data-color="#ff6f00" style="background-color:#ff6f00;"></div>
+            
+            <div class="colors" data-color="#0062ff" style="background-color:#0062ff;"></div>
+            
+            <div class="colors" data-color="#bf00ff" style="background-color:#bf00ff;"></div>
+        </div>
+        <div class="content-generator">
+            <h3 class="title-generator">Gerador de senha forte</h3>
+
+            <div class="flex-button-generator">
+                <input type="number" placeholder="Caractere:" class="input-caract" id="input-caract" min="5" max="10">
+
+                <button class="btn-generator" id="btn-generator">Gerar senha</button>
+            </div>
+
+            <div class="content-result">
+                <span class="title-password">Senha gerada:</span>
+                <div class="result-password">
+                    <p class="new-password">A senha será gerada aqui</p>
+                </div>
+            </div>
+        </div>
+        <div class="pass-generate-list">
+            <h3 class="title-pass-list">Lista de senhas geradas</h3>
+            <table class="list-pass-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Senha</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table> 
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
