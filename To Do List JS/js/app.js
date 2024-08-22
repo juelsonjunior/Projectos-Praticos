@@ -69,8 +69,10 @@ const taskIsDone = (id) => {
 const editTask = (id) => {
     const paragraf = document.querySelectorAll('.task')
 
-    const icon_edit = document.querySelectorAll('.icon-edit')
-    icon_edit[id].style.display = "none"
+    const icons = document.querySelectorAll('.actions-task i')
+    icons[0].style.display = "none"
+    icons[1].style.display = "none"
+    icons[2].style.display = "none"
 
     const paragrafNumber = document.querySelector(`i[data-number="${id}"]`)
 
