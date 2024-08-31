@@ -21,3 +21,12 @@ document.querySelectorAll('.games').forEach((card, indexCard) => {
         exibirModalgames(indexCard)
     })
 })
+
+const menu_hamburguer = document.querySelector('.menu-hamburguer')
+const menu_mobile = document.querySelector('.flex-menu')
+
+
+
+menu_hamburguer.addEventListener('click', () => {
+    menu_mobile.classList.toggle('active')
+})
