@@ -10,11 +10,11 @@ export function StopWatch() {
     let minute = Math.floor((time / 60) % 60);
     let second = Math.floor(time % 60);
 
-    hour = hour < 10 ? "0" + hour : hour;
-    minute = minute < 10 ? "0" + minute : minute;
-    second = second < 10 ? "0" + second : second;
+    let formatH = hour.toString().padStart(2, '0')
+    let formatM = minute.toString().padStart(2, '0')
+    let formatS = second.toString().padStart(2, '0')
 
-    return hour + ":" + minute + ":" + second;
+    return formatH + " : " + formatM + " : " + formatS;
   };
 
   const timer = useRef();
@@ -34,13 +34,13 @@ export function StopWatch() {
   };
 
   const pauseAndContinueWatch = () => {
-    if (isPaused) clearInterval(timer.current);
+    isPaused && clearInterval(timer.current);
     setIsPaused(!isPaused);
   };
   return (
     <>
       <div className="bg-gradient-to-b from-slate-950 to-transparent rounded-xl p-5 shadow-lg">
-        <span className="text-7xl text-white">{formatTime(time)}</span>
+        <span className={`text-7xl transition-all duration-300 ease-in-out ${isPaused ? `text-white` : `text-gray-500`}`}>{formatTime(time)}</span>
       </div>
       <div className="flex gap-5">
         <Buttons
