@@ -6,11 +6,11 @@ export function StopWatch() {
   const [isPaused, setIsPaused] = useState(true);
 
   const formatTime = (time) => {
-    let hour   = Math.floor((time / 60 / 60) % 24);
+    let hour = Math.floor((time / 60 / 60) % 24);
     let minute = Math.floor((time / 60) % 60);
     let second = Math.floor(time % 60);
 
-    hour   = hour   < 10 ? "0" + hour   : hour;
+    hour = hour < 10 ? "0" + hour : hour;
     minute = minute < 10 ? "0" + minute : minute;
     second = second < 10 ? "0" + second : second;
 
@@ -23,7 +23,7 @@ export function StopWatch() {
     if (isPaused) {
       timer.current = setInterval(() => {
         setTime((pre) => pre + 1);
-      }, 0);
+      }, 1000);
     }
 
     return () => clearInterval(timer.current);
