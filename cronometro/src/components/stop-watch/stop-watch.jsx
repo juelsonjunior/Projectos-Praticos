@@ -1,73 +1,52 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Buttons } from "../buttons/buttons";
 
 export function StopWatch() {
-  const [hour, setHour] = useState(0);
-  const [minute, setMinute] = useState(0);
-  const [second, setSecond] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [time, setTime] = useState(0);
+  const [isPaused, setIsPaused] = useState(true);
 
-  const formatTime = (val) => {
-    if (val > 9) {
-      return val;
-    } else {
-      return "0" + val;
+  const formatTime = (time) => {
+    let hour   = Math.floor((time / 60 / 60) % 24);
+    let minute = Math.floor((time / 60) % 60);
+    let second = Math.floor(time % 60);
+
+    hour   = hour   < 10 ? "0" + hour   : hour;
+    minute = minute < 10 ? "0" + minute : minute;
+    second = second < 10 ? "0" + second : second;
+
+    return hour + ":" + minute + ":" + second;
+  };
+
+  const timer = useRef();
+
+  useEffect(() => {
+    if (isPaused) {
+      timer.current = setInterval(() => {
+        setTime((pre) => pre + 1);
+      }, 0);
     }
-  };
 
-  const stopWatch = () => {
-    if (!isPaused) {
-      setSecond(second + 1);
-      if (second >= 59) {
-        setSecond(0);
-        setMinute(minute + 1);
-
-        if (minute >= 59) {
-          setMinute(0);
-          setHour(hour + 1);
-
-          if (hour >= 23) {
-            setHour(0);
-            setMinute(0);
-            setSecond(0);
-          }
-        }
-      }
-    }
-  };
-
-  const timeoutId = setTimeout(() => {
-    stopWatch();
-  }, 1000);
-
-  const pauseWatch = () => {
-    setIsPaused(true);
-    clearTimeout(timeoutId);
-  };
-
-  const continueWatch = () => {
-    setIsPaused(false);
-    stopWatch();
-  };
+    return () => clearInterval(timer.current);
+  }, [isPaused]);
 
   const resetWatch = () => {
-    setHour(0);
-    setMinute(0);
-    setSecond(0);
-    setIsPaused(true);
-    clearTimeout(timeoutId);
-    stopWatch();
+    setTime(0);
+  };
+
+  const pauseAndContinueWatch = () => {
+    if (isPaused) clearInterval(timer.current);
+    setIsPaused(!isPaused);
   };
   return (
     <>
       <div className="bg-gradient-to-b from-slate-950 to-transparent rounded-xl p-5 shadow-lg">
-        <span className="text-7xl text-white">
-          {formatTime(hour)} : {formatTime(minute)} : {formatTime(second)}
-        </span>
+        <span className="text-7xl text-white">{formatTime(time)}</span>
       </div>
       <div className="flex gap-5">
-        <Buttons text="Pausar" action={pauseWatch} />
-        <Buttons text="Continuar" action={continueWatch} />
+        <Buttons
+          text={isPaused ? "Pausar" : "Continuar"}
+          action={pauseAndContinueWatch}
+        />
         <Buttons text="Reiniciar" action={resetWatch} />
       </div>
     </>
