@@ -6,7 +6,7 @@ export class usuario {
     }
     validarInputs(){
         let valido = false
-        
+         
         if(this.validarNome()){
             valido = true
         }

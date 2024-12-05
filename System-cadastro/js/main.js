@@ -6,7 +6,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     verificarForm()
 })
-
+ 
 function verificarForm() {
     const box_input = document.querySelectorAll('.box-input')
     const input_form = document.querySelectorAll('.input-form')
